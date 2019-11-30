@@ -1,7 +1,12 @@
 import React from "react";
+import { GlobalStyle } from "./GlobalStyle";
 
 function App() {
-  return <div className="dell">Hello Word</div>;
+  return (
+    <React.Fragment>
+      <GlobalStyle />
+    </React.Fragment>
+  );
 }
 
 export default App;
