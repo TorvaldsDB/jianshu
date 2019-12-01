@@ -27,6 +27,7 @@ paste the following snippets into your place where you need icon.
 - [redux](https://redux.js.org/)
 - createStore
 - reducer
+- combineReducers
 
 ## react-redux
 
@@ -45,3 +46,7 @@ paste the following snippets into your place where you need icon.
 ## react-transition-group
 
 [react-transition-group](https://reactcommunity.org/react-transition-group/)
+
+## redux-devtools-extension
+
+[redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension)
