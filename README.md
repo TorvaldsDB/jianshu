@@ -20,9 +20,21 @@ paste the following snippets into your place where you need icon.
 
 ## react
 
+- [react](https://reactjs.org/)
+
 ## redux
 
+- [redux](https://redux.js.org/)
+- createStore
+- reducer
+
 ## react-redux
+
+- Docs [react-redux](https://react-redux.js.org/)
+- Provider
+- connect
+  - mapStateToProps
+  - mapDispatchToProps
 
 ## redux-thunk
 
