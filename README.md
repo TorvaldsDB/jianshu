@@ -29,3 +29,7 @@ paste the following snippets into your place where you need icon.
 ## axios
 
 ## immutableJS
+
+## react-transition-group
+
+[react-transition-group](https://reactcommunity.org/react-transition-group/)
