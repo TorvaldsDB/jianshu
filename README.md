@@ -43,9 +43,12 @@ paste the following snippets into your place where you need icon.
 
 ## immutableJS
 
+[immutableJS](https://github.com/immutable-js/immutable-js)
+
 ## react-transition-group
 
 [react-transition-group](https://reactcommunity.org/react-transition-group/)
+[Using Immutable.JS with Redux](https://redux.js.org/recipes/using-immutablejs-with-redux)
 
 ## redux-devtools-extension
 
