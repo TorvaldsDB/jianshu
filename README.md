@@ -39,6 +39,10 @@ paste the following snippets into your place where you need icon.
 
 ## redux-thunk
 
+Enhance `dispatch`, and is used when store is created.
+`redux-thunk` should appear when `createStore` is called.
+So we should import `redux-thunk` in the `store/index.js`. It will be better under the `import { createStore } from "redux"`
+
 ## axios
 
 ## immutableJS
