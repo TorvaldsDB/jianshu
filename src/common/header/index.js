@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Map } from "immutable";
 import {
   HeaderWrapper,
   Logo,
@@ -19,8 +20,8 @@ import { connect } from "react-redux";
 import { actionCreators } from "../header/store";
 
 class Header extends Component {
-  getListArea = show => {
-    if (show) {
+  getListArea = () => {
+    if (this.props.focused) {
       return (
         <SearchInfo>
           <SearchInfoTitle>
@@ -28,11 +29,9 @@ class Header extends Component {
             <SearchInfoSwitch>换一批</SearchInfoSwitch>
           </SearchInfoTitle>
           <SearchInfoList>
-            <SearchInfoItem>教育</SearchInfoItem>
-            <SearchInfoItem>教育</SearchInfoItem>
-            <SearchInfoItem>教育</SearchInfoItem>
-            <SearchInfoItem>教育</SearchInfoItem>
-            <SearchInfoItem>教育</SearchInfoItem>
+            {this.props.list.map(item => {
+              return <SearchInfoItem key={item}>{item}</SearchInfoItem>;
+            })}
           </SearchInfoList>
         </SearchInfo>
       );
@@ -64,7 +63,7 @@ class Header extends Component {
             <i className={this.props.focused ? "focused iconfont" : "iconfont"}>
               &#xe848;
             </i>
-            {this.getListArea(this.props.focused)}
+            {this.getListArea()}
           </SearchWrapper>
         </Nav>
         <Addition>
@@ -80,13 +79,15 @@ class Header extends Component {
 
 const mapStateToProps = state => {
   return {
-    focused: state.getIn(["header", "focused"])
+    focused: state.getIn(["header", "focused"]),
+    list: state.getIn(["header", "list"])
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     handleInputFocus() {
+      dispatch(actionCreators.getList());
       dispatch(actionCreators.searchFoucus());
     },
     handleInputBlur() {

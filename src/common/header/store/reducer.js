@@ -6,7 +6,7 @@ const initialState = fromJS({
   list: []
 });
 
-export default (state = initialState, { type }) => {
+export default (state = initialState, { type, ...payload }) => {
   switch (type) {
     case constants.SEARCH_FOCUS:
       // immutable 对象的 set 方法, 会结合之前 immutable 对象的值
@@ -14,6 +14,8 @@ export default (state = initialState, { type }) => {
       return state.set("focused", true);
     case constants.SEARCH_BLUR:
       return state.set("focused", false);
+    case constants.CHANGE_LIST:
+      return state.set("list", payload.data);
     default:
       return state;
   }
