@@ -45,6 +45,8 @@ So we should import `redux-thunk` in the `store/index.js`. It will be better und
 
 ## axios
 
+[axios](https://github.com/axios/axios)
+
 ## immutableJS
 
 [immutableJS](https://github.com/immutable-js/immutable-js)
