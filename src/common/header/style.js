@@ -78,6 +78,7 @@ export const SearchInfoSwitch = styled.span`
   float: right;
   font-size: 13px;
   color: #969696;
+  cursor: pointer;
   .spin {
     display: block; /* 只有 block 样式才可以 transform */
     float: left; /* 必须带着 */
