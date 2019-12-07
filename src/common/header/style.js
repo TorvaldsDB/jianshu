@@ -44,7 +44,7 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
   position: relative;
   float: left;
-  .iconfont {
+  .zoom {
     position: absolute;
     right: 5px;
     bottom: 5px;
@@ -78,6 +78,15 @@ export const SearchInfoSwitch = styled.span`
   float: right;
   font-size: 13px;
   color: #969696;
+  .spin {
+    display: block; /* 只有 block 样式才可以 transform */
+    float: left; /* 必须带着 */
+    font-size: 12px;
+    margin-right: 2px;
+    transition: all 0.2s ease-in;
+    /* transform: rotate(0deg); */
+    transform-origin: center center;
+  }
 `;
 export const SearchInfoList = styled.span`
   overflow: hidden;
