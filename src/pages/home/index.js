@@ -5,7 +5,7 @@ import Recommend from "./components/Recommend";
 import List from "./components/List";
 import Writer from "./components/Writer";
 import { connect } from "react-redux";
-import axios from "axios";
+import { actionCreators } from "./store";
 
 class Home extends Component {
   render() {
@@ -35,16 +35,7 @@ class Home extends Component {
 
 const mapDispatchToProps = dispatch => ({
   changeHomeData() {
-    axios.get("/api/home.json").then(res => {
-      const result = res.data.data;
-      const action = {
-        type: "change_home_data",
-        topicList: result.topicList,
-        articleList: result.articleList,
-        recommendList: result.recommendList
-      };
-      dispatch(action);
-    });
+    dispatch(actionCreators.getHomeInfo());
   }
 });
 
