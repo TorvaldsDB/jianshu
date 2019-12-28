@@ -16,7 +16,7 @@ class Detail extends PureComponent {
 
   componentDidMount() {
     const { getDetail } = this.props;
-    getDetail();
+    getDetail(this.props.match.params.id);
   }
 }
 
@@ -26,8 +26,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getDetail() {
-    dispatch(actionCreators.getDetail());
+  getDetail(id) {
+    dispatch(actionCreators.getDetail(id));
   }
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);
