@@ -15,6 +15,11 @@ export default (state = initialState, { type, ...payload }) => {
         articleList: fromJS(payload.articleList),
         recommendList: fromJS(payload.recommendList)
       });
+    case constants.ADD_ARTICLE_LIST:
+      return state.set(
+        "articleList",
+        state.get("articleList").concat(payload.list)
+      );
     // `return state.merge()` instead of  `return state` because
     // merge is a pure function, and it won't change state
     default:
