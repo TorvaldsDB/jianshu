@@ -5,7 +5,8 @@ const initialState = fromJS({
   topicList: [],
   articleList: [],
   recommendList: [],
-  articlePage: 1
+  articlePage: 1,
+  showScroll: false
 });
 
 export default (state = initialState, { type, ...payload }) => {
@@ -21,6 +22,8 @@ export default (state = initialState, { type, ...payload }) => {
         articleList: state.get("articleList").concat(payload.list),
         articlePage: payload.nextPage
       });
+    case constants.TOGGLE_SCROLL_TOP:
+      return state.set("showScroll", payload.show);
     default:
       return state;
   }
