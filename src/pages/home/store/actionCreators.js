@@ -9,9 +9,10 @@ const changeHomeData = result => ({
   recommendList: result.recommendList
 });
 
-const addHomeList = list => ({
+const addHomeList = (list, nextPage) => ({
   type: constants.ADD_ARTICLE_LIST,
-  list: fromJS(list)
+  list: fromJS(list),
+  nextPage
 });
 
 export const getHomeInfo = () => {
@@ -23,13 +24,13 @@ export const getHomeInfo = () => {
   };
 };
 
-export const getMoreList = () => {
+export const getMoreList = page => {
   // 异步请求, action 可以放回一个函数. 进行异步请求.
   return dispatch => {
     // dispatch({ type: constants.GET_MORE_LIST });
-    axios.get("/api/homeList.json").then(res => {
+    axios.get(`/api/homeList.json?page=${page}`).then(res => {
       const result = res.data.data;
-      dispatch(addHomeList(result));
+      dispatch(addHomeList(result, page + 1));
     });
   };
 };

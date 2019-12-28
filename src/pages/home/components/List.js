@@ -5,7 +5,7 @@ import { actionCreators } from "../store";
 
 class List extends Component {
   render() {
-    const { list, getMoreList } = this.props;
+    const { list, getMoreList, page } = this.props;
     return (
       <>
         {list.map((item, index) => (
@@ -17,19 +17,21 @@ class List extends Component {
             </ListInfo>
           </ListItem>
         ))}
-        <LoadMore onClick={getMoreList}>阅读更多</LoadMore>
+        {/* 如不需要传递参数, onClick 必须是一个箭头函数 */}
+        <LoadMore onClick={() => getMoreList(page)}>阅读更多</LoadMore>
       </>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  list: state.getIn(["home", "articleList"])
+  list: state.getIn(["home", "articleList"]),
+  page: state.getIn(["home", "articlePage"])
 });
 
 const mapDispatchToProps = dispatch => ({
-  getMoreList() {
-    dispatch(actionCreators.getMoreList());
+  getMoreList(page) {
+    dispatch(actionCreators.getMoreList(page));
   }
 });
 

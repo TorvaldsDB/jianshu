@@ -4,7 +4,8 @@ import * as constants from "./constants";
 const initialState = fromJS({
   topicList: [],
   articleList: [],
-  recommendList: []
+  recommendList: [],
+  articlePage: 1
 });
 
 export default (state = initialState, { type, ...payload }) => {
@@ -16,12 +17,10 @@ export default (state = initialState, { type, ...payload }) => {
         recommendList: fromJS(payload.recommendList)
       });
     case constants.ADD_ARTICLE_LIST:
-      return state.set(
-        "articleList",
-        state.get("articleList").concat(payload.list)
-      );
-    // `return state.merge()` instead of  `return state` because
-    // merge is a pure function, and it won't change state
+      return state.merge({
+        articleList: state.get("articleList").concat(payload.list),
+        articlePage: payload.nextPage
+      });
     default:
       return state;
   }
