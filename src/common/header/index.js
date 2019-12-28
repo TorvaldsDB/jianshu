@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import {
   HeaderWrapper,
   Logo,
@@ -18,7 +18,7 @@ import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import { actionCreators } from "../header/store";
 
-class Header extends Component {
+class Header extends PureComponent {
   getListArea = () => {
     const {
       focused,
