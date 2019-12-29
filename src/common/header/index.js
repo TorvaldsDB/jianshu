@@ -18,6 +18,7 @@ import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import { actionCreators } from "../header/store";
 import { Link } from "react-router-dom";
+import { actionCreators as loginActionCreators } from "../../pages/login/store";
 
 class Header extends PureComponent {
   getListArea = () => {
@@ -76,7 +77,8 @@ class Header extends PureComponent {
       handleInputFocus,
       handleInputBlur,
       list,
-      login
+      login,
+      logout
     } = this.props;
     return (
       <HeaderWrapper>
@@ -87,7 +89,9 @@ class Header extends PureComponent {
           <NavItem className="left active">首页</NavItem>
           <NavItem className="left">下载 APP</NavItem>
           {login ? (
-            <NavItem className="right">退出</NavItem>
+            <NavItem className="right" onClick={logout}>
+              退出
+            </NavItem>
           ) : (
             <Link to="/login">
               <NavItem className="right">登录</NavItem>
@@ -161,6 +165,9 @@ const mapDispatchToProps = dispatch => {
       } else {
         dispatch(actionCreators.ChangePage(0));
       }
+    },
+    logout() {
+      dispatch(loginActionCreators.logout());
     }
   };
 };
